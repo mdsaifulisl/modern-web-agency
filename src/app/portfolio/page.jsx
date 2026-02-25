@@ -164,7 +164,7 @@ const PortfolioPage = () => {
                     
                     <hr className="opacity-5 mb-4" />
                     
-                    <Button href="#" variant="link" className="d-flex align-items-center justify-content-between">
+                    <Button href={`/portfolio/${project.id}`} variant="link" className="d-flex align-items-center justify-content-between">
                       <span>View Case Study</span>
                       <FiArrowRight className="transition-all group-hover-translate" />
                     </Button>
