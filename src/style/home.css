@@ -1,0 +1,231 @@
+:root {
+  --color-deep-navy: #0A2647;
+  --color-vibrant-cyan: #2C9CDB;
+  --color-warm-yellow: #FFC857;
+  --color-off-white: #F8F9FA;
+  --color-light-gray: #E9ECEF;
+  --color-charcoal: #343A40;
+  --color-mid-gray: #6C757D;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: var(--color-charcoal);
+  background-color: var(--color-off-white);
+}
+
+.text-navy { color: var(--color-deep-navy) !important; }
+.text-cyan { color: var(--color-vibrant-cyan) !important; }
+.text-yellow { color: var(--color-warm-yellow) !important; }
+.bg-navy { background-color: var(--color-deep-navy) !important; }
+.bg-off-white { background-color: var(--color-off-white) !important; }
+.ls-2 { letter-spacing: 2px; }
+.z-index-2 { z-index: 2; position: relative; }
+
+.hero-section {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #fff 0%, var(--color-off-white) 100%);
+}
+
+.hero-blob {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: var(--color-vibrant-cyan);
+  filter: blur(120px);
+  opacity: 0.1;
+  top: -100px;
+  right: -100px;
+  z-index: 1;
+}
+
+.service-icon-box {
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-off-white);
+  color: var(--color-vibrant-cyan);
+  border-radius: 18px;
+  font-size: 2.2rem;
+  transition: all 0.4s ease;
+}
+
+.hover-lift {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid transparent !important;
+}
+
+.hover-lift:hover {
+  transform: translateY(-10px);
+  background: white !important;
+  box-shadow: 0 20px 40px rgba(10, 38, 71, 0.08) !important;
+  border-color: var(--color-light-gray) !important;
+}
+
+.hover-lift:hover .service-icon-box {
+  background: var(--color-vibrant-cyan);
+  color: white;
+  transform: rotateY(10deg);
+}
+
+.heading-underline {
+  width: 70px;
+  height: 5px;
+  background: var(--color-warm-yellow);
+  border-radius: 10px;
+}
+
+.bg-navy {
+  position: relative;
+}
+
+.bg-navy::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: url('https://www.transparenttextures.com/patterns/carbon-fibre.png');
+  opacity: 0.05;
+}
+
+.portfolio-card {
+  cursor: pointer;
+  height: 300px;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.portfolio-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.portfolio-overlay {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: linear-gradient(to top, rgba(10, 38, 71, 0.95) 10%, transparent 70%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 25px;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.portfolio-card:hover .portfolio-overlay {
+  opacity: 1;
+}
+
+.portfolio-card:hover img {
+  transform: scale(1.1);
+}
+
+.testimonials-section {
+  background-color: var(--color-off-white);
+  overflow: hidden;
+}
+
+.testimonial-slider {
+  position: relative;
+  width: 100%;
+  padding: 10px 0;
+}
+
+.testimonial-track {
+  display: flex;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+.testimonial-slide {
+  flex: 0 0 100%;
+}
+
+@media (min-width: 768px) {
+  .testimonial-slide {
+    flex: 0 0 50%;
+  }
+}
+
+.testimonial-slide .card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: white;
+  border: 1px solid var(--color-light-gray) !important;
+}
+
+.testimonial-slide .card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgba(10, 38, 71, 0.1) !important;
+}
+
+.dots-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.dot-btn {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: none;
+  background-color: #cbd5e0;
+  padding: 0;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.dot-btn.active {
+  background-color: var(--color-vibrant-cyan);
+  width: 30px;
+  border-radius: 20px;
+}
+
+.decorative-circle {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: var(--color-vibrant-cyan);
+  opacity: 0.1;
+  border-radius: 50%;
+  bottom: -150px;
+  right: -100px;
+  pointer-events: none;
+}
+
+.footer-links li a {
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.footer-links li a:hover {
+  color: var(--color-vibrant-cyan) !important;
+  transform: translateX(5px);
+}
+
+@media (max-width: 991px) {
+  .hero-section {
+    text-align: center;
+    padding-bottom: 80px;
+  }
+  .display-3 {
+    font-size: 2.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .display-3 {
+    font-size: 2.3rem;
+  }
+  .service-icon-box {
+    width: 60px;
+    height: 60px;
+    font-size: 1.8rem;
+  }
+}
+
