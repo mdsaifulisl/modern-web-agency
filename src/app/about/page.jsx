@@ -43,7 +43,7 @@ export default function AboutPage() {
           <p className="opacity-75 mb-5 mx-auto" style={{maxWidth: '600px'}}>
             Join 200+ companies that trust NextWave for their digital transformation. Let&apos;s create something extraordinary.
           </p>
-          <Button variant="cta" animated={true}>Contact Us Now</Button>
+          <Button variant="cta" href="/contact" animated={true}>Contact Us Now</Button>
         </div>
       </section>
     </div>

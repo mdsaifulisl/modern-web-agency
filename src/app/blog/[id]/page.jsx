@@ -48,7 +48,7 @@ const BlogDetails = ({ params }) => {
   };
 
   return (
-    <div className="blog-details-page bg-white min-vh-100">
+    <div className="blog-details-page bg-white min-vh-100 overflow-hidden">
       {/* --- ১. রিডিং প্রগ্রেস বার --- */}
       <div className="reading-bar" style={{ width: `${readingProgress}%` }}></div>
 
@@ -140,50 +140,6 @@ const BlogDetails = ({ params }) => {
         </div>
       </div>
 
-      <style jsx>{`
-        .max-w-800 { max-width: 800px; }
-        .reading-bar {
-          position: fixed; top: 0; left: 0; height: 5px;
-          background: linear-gradient(to right, #00f2ff, #010b2a);
-          z-index: 9999; transition: width 0.1s ease-out;
-        }
-        .transition-pro { transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
-        .hover-cyan:hover { color: #00f2ff !important; }
-        .hover-lift:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.05) !important; }
-
-        /* Typography */
-        .blog-article { font-size: 1.15rem; line-height: 1.8; color: #444; }
-        .blog-article :global(h3) { color: #010b2a; font-weight: 800; margin-top: 2.5rem; margin-bottom: 1.5rem; }
-        .blog-article :global(p) { margin-bottom: 1.5rem; }
-        .blog-article :global(blockquote) {
-          border-left: 5px solid #00f2ff; padding: 1.5rem 2rem;
-          background: #f8fdfd; border-radius: 0 20px 20px 0;
-          font-style: italic; font-size: 1.3rem; margin: 3rem 0; color: #010b2a;
-        }
-
-        /* Sidebar & Buttons */
-        .toc a { text-decoration: none; color: #666; font-size: 14px; font-weight: 500; transition: 0.3s; }
-        .toc a.active { color: #00f2ff; font-weight: 700; }
-        .toc a:hover { color: #010b2a; padding-left: 5px; }
-        
-        .share-btn {
-          width: 40px; height: 40px; border-radius: 50%; border: none;
-          display: flex; align-items: center; justify-content: center;
-          background: #f0f2f5; transition: 0.3s; color: #010b2a;
-        }
-        .share-btn:hover { transform: translateY(-3px); color: white; }
-        .twitter:hover { background: #1da1f2; }
-        .linkedin:hover { background: #0077b5; }
-        .facebook:hover { background: #1877f2; }
-
-        .line-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-        .x-small { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
-
-        @media (max-width: 768px) {
-          .display-4 { font-size: 2.2rem; }
-          .blog-article { font-size: 1.1rem; }
-        }
-      `}</style>
     </div>
   );
 };

@@ -41,7 +41,7 @@ const PortfolioPage = () => {
       id: 4,
       title: "Corporate Dashboard",
       category: "web",
-      image: "https://images.unsplash.com/photo-1551288049-bb848a4fb6f5?q=80&w=800",
+      image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=800",
       desc: "Analytics dashboard with interactive charts and user management."
     },
     {
@@ -76,11 +76,11 @@ const PortfolioPage = () => {
         
         <div className="container py-5 position-relative">
           <div className="text-center">
-            <div className="d-inline-flex align-items-center gap-2 px-3 py-1 text-cyan fw-bold small text-uppercase ls-3 mb-4">
+            <div className="d-inline-flex align-items-center gap-2 px-3 py-1 text-cyan fw-bold small text-uppercase ls-3 mb-4 animate-fade-in delay-1">
               <FiPlus size={14} /> Our Masterpieces
             </div>
-            <h1 className="display-3 fw-bold mb-4 text-white">Crafting <span className="text-yellow">Digital Stories</span></h1>
-            <p className="lead mx-auto opacity-75 mb-0" style={{ maxWidth: '650px' }}>
+            <h1 className="display-3 fw-bold mb-4 text-white animate-slide-up delay-2">Crafting <span className="text-yellow">Digital Stories</span></h1>
+            <p className="lead mx-auto opacity-75 mb-0 animate-slide-up delay-3" style={{ maxWidth: '650px' }}>
               We don&apos;t just build websites; we create experiences that drive results. 
               Explore our latest works across various industries.
             </p>
@@ -185,8 +185,8 @@ const PortfolioPage = () => {
               Let&apos;s join forces and build a digital masterpiece that sets you apart from the competition.
             </p>
             <div className="d-flex justify-content-center gap-3 flex-wrap">
-              <Button variant="cta" animated={true}>Let&apos;s Get Started</Button>
-              <Button variant="outline-white" animated={true}>View All Services</Button>
+              <Button variant="cta" href="/contact" animated={true}>Let&apos;s Get Started</Button>
+              <Button variant="outline-white" href="/services" animated={true}>View All Services</Button>
             </div>
           </div>
           {/* Decorative Elements */}
@@ -194,55 +194,6 @@ const PortfolioPage = () => {
         </div>
       </section>
 
-      <style jsx>{`
-        .ls-3 { letter-spacing: 3px; }
-        .ls-2 { letter-spacing: 2px; }
-        .ls-1 { letter-spacing: 1px; }
-        
-        .hover-lift:hover {
-          transform: translateY(-12px);
-          box-shadow: 0 30px 60px -15px rgba(1, 11, 42, 0.2) !important;
-        }
-
-        .project-card:hover .card-img {
-          transform: scale(1.15);
-        }
-
-        .project-card:hover .card-overlay {
-          opacity: 1;
-          background: linear-gradient(to top, rgba(1, 11, 42, 0.9), transparent);
-        }
-
-        .translate-down { transform: translateY(20px); }
-        .project-card:hover .translate-down { transform: translateY(0); }
-
-        .hover-cyan:hover { color: #00f2ff !important; }
-        
-        .group-hover-translate { transition: transform 0.3s ease; }
-        .group:hover .group-hover-translate { transform: translateX(5px); }
-
-        .animate-up {
-          opacity: 0;
-          animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-
-        @keyframes fadeInUp {
-          from { opacity: 0; transform: translateY(40px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-
-        .hover-scale { transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); }
-        .hover-scale:hover { transform: scale(1.2); }
-        
-        .rotate-12 { transform: rotate(12deg); }
-        .line-clamp-2 {
-          display: -webkit-box;
-          -webkit-line-clamp: 2;
-          -webkit-box-orient: vertical;  
-          overflow: hidden;
-        }
-        .backdrop-blur { backdrop-filter: blur(4px); }
-      `}</style> 
     </div>
   );
 };

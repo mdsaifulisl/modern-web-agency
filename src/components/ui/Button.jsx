@@ -15,7 +15,7 @@ export default function Button({
       case "cta": return "btn-cta";
       case "link": return "custom-link";
       case "outline": return "btn-outline-animated";
-      default: return "btn-primary-custom";
+      default: return "btn-primary-custom"; 
     }
   };
 

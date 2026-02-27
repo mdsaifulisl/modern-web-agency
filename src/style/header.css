@@ -1,10 +1,27 @@
-/* Header Container */
+/* --- কালার ভ্যারিয়েবল এবং বেস --- */
+:root {
+  --color-deep-navy: #0a2647;
+  --color-vibrant-cyan: #2c9cdb;
+  --color-charcoal: #343a40;
+  --color-mid-gray: #6c757d;
+  --color-off-white: #f8f9fa;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+ul {
+  margin: 0;
+  padding: 0;
+}
+li {
+  margin: 0;
+  padding: 0;
+}
+
 .header-container {
   background-color: white;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
   position: sticky;
   top: 0;
-  z-index: 1000; 
+  z-index: 1000;
   width: 100%;
 }
 
@@ -17,27 +34,25 @@
   padding: 15px 20px;
 }
 
-/* Logo */
 .logo {
   font-size: 1.6rem;
   font-weight: 800;
   color: var(--color-deep-navy);
   text-decoration: none;
   position: relative;
-  z-index: 999; 
+  z-index: 999;
 }
 
 .brand-accent {
   color: var(--color-vibrant-cyan);
 }
 
-/* Navigation List */
+/* নেভিগেশন লিস্ট */
 .nav-list {
   display: flex;
   list-style: none;
-  gap: 30px;
-  margin: 0;
-  padding: 0;
+  gap: 15px;
+  align-items: center;
 }
 
 .nav-list li a,
@@ -46,19 +61,22 @@
   color: var(--color-charcoal);
   font-weight: 600;
   font-size: 15px;
-  transition: color 0.3s ease;
+  padding: 10px 15px;
+  border-radius: 6px;
+  transition: var(--transition);
   cursor: pointer;
   display: flex;
   align-items: center;
 }
 
-.nav-list li a:hover,
-.dropdown-trigger:hover,
-.active-link {
+/* Active Class */
+.nav-list li a.active-link,
+.active-parent .dropdown-trigger {
   color: var(--color-vibrant-cyan) !important;
+  background-color: rgba(44, 156, 219, 0.1);
 }
 
-/* Desktop Dropdown CSS (Only for Screen > 900px) */
+/* ডেস্কটপ ড্রপডাউন */
 @media (min-width: 901px) {
   .dropdown {
     position: relative;
@@ -76,31 +94,30 @@
     opacity: 0;
     visibility: hidden;
     transform: translateY(10px);
-    transition: 0.3s;
+    transition: var(--transition);
   }
-
   .dropdown:hover .dropdown-content {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
   }
-  
-  .dropdown:hover .arrow-down {
-    transform: rotate(-135deg);
+  .dropdown-content li {
+    list-style: none;
+  }
+  .dropdown-content li a {
+    display: block;
+    padding: 12px 20px; /* ডেস্কটপেও গ্যাপ একটু বাড়ানো হয়েছে */
+  }
+  .dropdown-content li a:hover {
+    background-color: var(--color-off-white);
+    color: var(--color-vibrant-cyan);
+  }
+  .mobile-only-btn {
+    display: none;
   }
 }
 
-.dropdown-content li a {
-  padding: 10px 20px;
-  display: block;
-}
-
-.dropdown-content li a:hover {
-  background-color: var(--color-off-white);
-  color: var(--color-vibrant-cyan);
-}
-
-/* Arrow icon */
+/* এরো আইকন */
 .arrow-down {
   border: solid var(--color-mid-gray);
   border-width: 0 2px 2px 0;
@@ -110,8 +127,11 @@
   margin-left: 8px;
   transition: 0.3s;
 }
+.rotate {
+  transform: rotate(-135deg) !important;
+}
 
-/* Mobile Toggle (Hamburger) */
+/* --- মোবাইল মেনু এবং ক্লোজ বাটন --- */
 .menu-toggle {
   display: none;
   flex-direction: column;
@@ -119,45 +139,49 @@
   background: none;
   border: none;
   cursor: pointer;
-  z-index: 1001;
-  padding: 5px;
+  padding: 10px;
+  position: relative;
+  z-index: 1010;
 }
 
 .bar {
   width: 25px;
   height: 3px;
   background-color: var(--color-deep-navy);
-  transition: 0.3s;
+  transition: var(--transition);
+  border-radius: 5px;
 }
 
-/* Hamburger to X Animation */
-.bar.ex:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-.bar.ex:nth-child(2) { opacity: 0; }
-.bar.ex:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+/* ক্লোজ বাটন এনিমেশন */
+.bar.ex:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+.bar.ex:nth-child(2) {
+  opacity: 0;
+}
+.bar.ex:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
 
-/* --- Responsive Design (Mobile) --- */
 @media (max-width: 900px) {
   .menu-toggle {
     display: flex;
   }
-  .header-action {
+  .desktop-only {
     display: none;
-  }
-  .mobile-only {
-    display: block;
   }
 
   .nav-menu {
     position: fixed;
     top: 0;
     right: -100%;
-    width: 80%; /* মোবাইল মেনু একটু চওড়া করা হলো */
+    width: 280px;
     height: 100vh;
     background-color: white;
+    padding: 100px 20px;
+    transition: var(--transition);
+    z-index: 1001;
     box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
-    transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    padding: 100px 30px;
-    z-index: 1000;
   }
 
   .nav-active {
@@ -166,30 +190,47 @@
 
   .nav-list {
     flex-direction: column;
-    gap: 15px;
+    align-items: flex-start;
+    gap: 10px; /* মেইন মেনু আইটেমগুলোর মধ্যে গ্যাপ */
   }
 
-  .dropdown-content {
-    display: none; /* JS এর show-dropdown ক্লাস দিয়ে কন্ট্রোল হবে */
-    position: static;
-    box-shadow: none;
-    padding-left: 15px;
-    background-color: var(--color-off-white);
-    border-radius: 8px;
-    margin-top: 10px;
+  .nav-list li {
+    width: 100%;
   }
+
+  /* --- মোবাইলে ড্রপডাউন কন্টেন্ট ও গ্যাপ ফিক্স --- */
+  .dropdown-content {
+    display: none;
+    width: 100%;
+    background: var(--color-off-white);
+    list-style: none;
+    padding: 10px 0; /* ড্রপডাউনের ভেতরে উপরে-নিচে গ্যাপ */
+    margin-top: 12px; /* মেইন মেনু আইটেম (Services) থেকে গ্যাপ */
+    border-radius: 8px;
+  }
+
+  .dropdown-content li a {
+    padding: 12px 20px; /* ড্রপডাউনের প্রতিটি লিঙ্কের মধ্যে গ্যাপ বাড়ানো হয়েছে */
+    font-size: 14px;
+    color: var(--color-charcoal);
+  }
+  
 
   .show-dropdown {
     display: block !important;
   }
-
-  .arrow-down.rotate {
-    transform: rotate(-135deg);
-  } 
+  .mobile-only-btn {
+    display: block;
+    margin-top: 25px;
+  }
 }
 
-
-
+.menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 999;
+}
 
 /* Footer CSS */
 
@@ -258,5 +299,100 @@
   }
   .contact-list li {
     justify-content: center;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- Contact Page Custom Styles --- */
+
+.contact-page {
+  background-color: var(--color-off-white);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.contact-info .title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--color-deep-navy);
+  margin-bottom: 1.5rem;
+}
+
+.contact-info .subtitle {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: var(--color-mid-gray);
+  margin-bottom: 3rem;
+}
+
+.icon-box {
+  width: 64px;
+  height: 64px;
+  background: #ffffff;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  color: var(--color-vibrant-cyan);
+  font-size: 1.6rem;
+  flex-shrink: 0;
+  transition: var(--transition);
+}
+
+
+.contact-form-card {
+  background: #ffffff;
+  border-radius: 32px;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
+}
+
+.contact-form-card .form-control, 
+.contact-form-card .form-select {
+  padding: 16px 20px;
+  border-radius: 14px;
+  border: 1.5px solid #f1f5f9;
+  background-color: #f8fafc;
+  transition: all 0.3s ease;
+}
+
+.contact-form-card .form-control:focus, 
+.contact-form-card .form-select:focus {
+  background-color: #ffffff !important;
+  border-color: var(--color-vibrant-cyan);
+  box-shadow: 0 0 0 4px rgba(0, 212, 255, 0.1) !important;
+  outline: none;
+}
+
+.hover-lift {
+  transition: all 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15) !important;
+}
+
+
+@media (max-width: 768px) {
+  .contact-info .title {
+    font-size: 2.5rem; 
+  }
+  .contact-form-card {
+    padding: 2rem !important; 
   }
 }

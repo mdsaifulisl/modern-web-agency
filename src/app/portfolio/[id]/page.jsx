@@ -6,7 +6,7 @@ import Link from "next/link";
 import { FiArrowLeft, FiCheckCircle, FiTarget, FiZap, FiExternalLink } from "react-icons/fi";
 import Button from "@/components/ui/Button";
 
-const CaseStudyPage = () => {
+const CaseStudyPage = ( { params } ) => {
   // বাস্তব প্রোজেক্টে এই ডাটা API বা প্রপস থেকে আসবে
   const project = {
     title: "E-Commerce Revolution",
@@ -24,7 +24,8 @@ const CaseStudyPage = () => {
       "Significant drop in cart abandonment",
       "Seamless integration with ERP systems"
     ],
-    techStack: ["Next.js", "Tailwind CSS", "Node.js", "PostgreSQL", "Stripe API"]
+    techStack: ["Next.js", "Tailwind CSS", "Node.js", "PostgreSQL", "Stripe API"],
+    liveLink: "https://ecommerce-platform-nextjs.vercel.app/"
   };
 
   return (
@@ -121,7 +122,7 @@ const CaseStudyPage = () => {
               </div>
               
               <div className="mt-4">
-                <Button variant="primary" className="w-100 py-3 d-flex align-items-center justify-content-center gap-2">
+                <Button variant="primary" href={project.liveLink} className="w-100 py-3 d-flex align-items-center justify-content-center gap-2">
                   Visit Live Site <FiExternalLink />
                 </Button>
               </div>
@@ -142,12 +143,22 @@ const CaseStudyPage = () => {
       </section>
 
       <style jsx>{`
-        .ls-1 { letter-spacing: 1px; }
-        .hover-cyan:hover { color: #00f2ff !important; }
-        .mt-n5 { margin-top: -5rem !important; }
+       
       `}</style>
     </div>
   );
 };
 
+// export const generateStaticParams = async () => {
+
+//   const projects = [ 
+//     { id: "e-commerce-revolution", title: "E-Commerce Revolution" },
+//     { id: "saas-success-story", title: "SaaS Success Story" },
+//     { id: "mobile-app-mastery", title: "Mobile App Mastery" }
+//   ];
+
+//   return projects.map((project) => ({ id: project.id }));
+// };
+
 export default CaseStudyPage;
+

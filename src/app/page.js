@@ -35,19 +35,19 @@ export default function Home() {
             <div className="col-lg-6 order-2 order-lg-1">
               <div className="d-flex align-items-center gap-2 mb-3">
                 <HiOutlineLightningBolt className="text-yellow fs-4" />
-                <h6 className="text-cyan fw-bold text-uppercase ls-2 mb-0">
+                <h6 className="text-cyan fw-bold text-uppercase ls-2 mb-0 animate-fade-in delay-1">
                   Creative Solutions
                 </h6>
               </div>
-              <h1 className="display-3 fw-bold text-navy mb-4">
+              <h1 className="display-3 fw-bold text-navy mb-4 animate-slide-up delay-2">
                 Elevate Your Business with{" "}
                 <span className="text-cyan">nextWave</span> Agency
               </h1>
-              <p className="lead text-muted mb-5">
+              <p className="lead text-muted mb-5 animate-slide-up delay-3">
                 We specialize in Web Development, Graphics Design, and SEO to
                 help your business grow in the digital era.
               </p>
-              <div className="d-flex flex-column flex-sm-row gap-3">
+              <div className="d-flex flex-column flex-sm-row gap-3 animate-fade-in delay-4">
                 <Button variant="cta" animated={true} href="/contact">
                   Start Your Project
                 </Button>

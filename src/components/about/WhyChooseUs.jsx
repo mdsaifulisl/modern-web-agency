@@ -37,7 +37,7 @@ const WhyChooseUs = () => {
                   </li>
                 ))}
               </ul>
-              <Button variant="outline" animated={true}>Learn More About Us</Button>
+              
             </div>
           </div>
         </div>
