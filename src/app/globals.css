@@ -26,6 +26,19 @@
 .z-index-2 { z-index: 2; position: relative; }
 
 
+
+/*  */
+.text-yellow { color: var(--color-warm-yellow) !important; }
+.bg-yellow { background-color: var(--color-warm-yellow) !important; }
+
+.vibrant-cyan { color: var(--color-vibrant-cyan) !important; }
+.bg-cyan { background-color: var(--color-vibrant-cyan) !important; }
+
+.deep-navy { color: var(--color-deep-navy) !important; }
+.bg-navy { background-color: var(--color-deep-navy) !important; }
+.off-white { color: var(--color-off-white) !important; }
+.bg-off-white { background-color: var(--color-off-white) !important; }
+
 /* Animation */
 /* --- Entrance Animations --- */
 @keyframes slideUp {

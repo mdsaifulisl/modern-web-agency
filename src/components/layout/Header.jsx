@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import Button from "@/components/ui/Button";
+import Button from "@/components/ui/Button"; 
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -25,9 +25,11 @@ export default function Header() {
   // একটিভ লিঙ্ক লজিক
   const getActiveClass = (path) => (pathname === path ? "active-link" : "");
 
+  if(pathname.startsWith("/admin")) return null; // Admin পেজে হেডার দেখাবেন না
+
   return (
     <header className="header-container">
-      <div className="header-content">
+      <div className="header-content container">
         <Link href="/" className="logo">
           next<span className="brand-accent">Wave</span>
         </Link>
@@ -52,6 +54,7 @@ export default function Header() {
                 <li><Link href="/services/web" className={getActiveClass("/services/web")}>Web Development</Link></li>
                 <li><Link href="/services/graphics" className={getActiveClass("/services/graphics")}>Graphics Design</Link></li>
                 <li><Link href="/services/seo" className={getActiveClass("/services/seo")}>SEO Optimization</Link></li>
+                
               </ul>
             </li>
 
@@ -61,6 +64,7 @@ export default function Header() {
             <li>
               <Link href="/blog" className={getActiveClass("/blog")}>Blog</Link>
             </li>
+            <li><Link href="/admin" className={getActiveClass("/admin")}>Admin Panel</Link></li>
 
             {/* Mobile Button Inside Menu */}
             <li className="mobile-only-btn">

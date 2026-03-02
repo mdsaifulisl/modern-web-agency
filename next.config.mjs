@@ -4,7 +4,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'i.pravatar.cc', // এটি যোগ করা হয়েছে
+        hostname: 'i.pravatar.cc', 
       },
       {
         protocol: 'https',
